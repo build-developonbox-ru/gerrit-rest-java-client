@@ -384,7 +384,7 @@ public class ChangeApiRestClientTest {
         ChangeApiRestClient changeApiRestClient = new ChangeApiRestClient(gerritRestClient, null, null, null,
             null, null, null, null, editInfoParser, "myProject~master~I8473b95934b5732ac55d26311a706c9c2bde9940");
 
-        EditInfo editInfo = changeApiRestClient.getEdit();
+        EditInfo editInfo = changeApiRestClient.edit().get().get();
         Truth.assertThat(editInfo).isSameAs(expectedEditInfo);
 
         EasyMock.verify(gerritRestClient);

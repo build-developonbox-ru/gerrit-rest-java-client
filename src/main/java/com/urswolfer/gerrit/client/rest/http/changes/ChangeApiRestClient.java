@@ -17,20 +17,12 @@
 package com.urswolfer.gerrit.client.rest.http.changes;
 
 import com.google.common.collect.Iterables;
-import com.google.gerrit.extensions.api.changes.AbandonInput;
-import com.google.gerrit.extensions.api.changes.AddReviewerInput;
-import com.google.gerrit.extensions.api.changes.ChangeApi;
-import com.google.gerrit.extensions.api.changes.FixInput;
-import com.google.gerrit.extensions.api.changes.RestoreInput;
-import com.google.gerrit.extensions.api.changes.MoveInput;
-import com.google.gerrit.extensions.api.changes.RevertInput;
-import com.google.gerrit.extensions.api.changes.RevisionApi;
+import com.google.gerrit.extensions.api.changes.*;
 import com.google.gerrit.extensions.client.ListChangesOption;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.common.CommentInfo;
 import com.google.gerrit.extensions.common.ReviewerInfo;
 import com.google.gerrit.extensions.common.SuggestedReviewerInfo;
-import com.google.gerrit.extensions.common.EditInfo;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.extensions.restapi.Url;
 import com.google.gson.JsonElement;
@@ -248,10 +240,8 @@ public class ChangeApiRestClient extends ChangeApi.NotImplemented implements Cha
     }
 
     @Override
-    public EditInfo getEdit() throws RestApiException {
-        String request = getRequestPath() + "/edit";
-        JsonElement jsonElement = gerritRestClient.getRequest(request);
-        return Iterables.getOnlyElement(editInfoParser.parseEditInfos(jsonElement));
+    public ChangeEditApi edit() throws RestApiException {
+        return new ChangeEditApiRestClient(gerritRestClient, editInfoParser, id);
     }
 
     @Override

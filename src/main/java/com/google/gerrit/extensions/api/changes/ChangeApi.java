@@ -18,7 +18,6 @@ import com.google.gerrit.extensions.client.ListChangesOption;
 import com.google.gerrit.extensions.common.AccountInfo;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.common.CommentInfo;
-import com.google.gerrit.extensions.common.EditInfo;
 import com.google.gerrit.extensions.common.MergePatchSetInput;
 import com.google.gerrit.extensions.common.SuggestedReviewerInfo;
 import com.google.gerrit.extensions.common.ReviewerInfo;
@@ -133,8 +132,8 @@ public interface ChangeApi {
   ChangeInfo get() throws RestApiException;
   /** {@code get} with {@link ListChangesOption} set to none. */
   ChangeInfo info() throws RestApiException;
-  /** Retrieve change edit when exists. */
-  EditInfo getEdit() throws RestApiException;
+  /** Retrieve change edit api when exists. */
+  ChangeEditApi edit() throws RestApiException;
 
   /**
    * Set hashtags on a change
@@ -346,7 +345,7 @@ public interface ChangeApi {
     }
 
     @Override
-    public EditInfo getEdit() throws RestApiException {
+    public ChangeEditApi edit() throws RestApiException {
       throw new NotImplementedException();
     }
 

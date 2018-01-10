@@ -1,11 +1,6 @@
 gerrit-rest-java-client
 ======================
 
-[![Linux Build](https://travis-ci.org/uwolfer/gerrit-rest-java-client.svg?branch=master)](https://travis-ci.org/uwolfer/gerrit-rest-java-client)
-[![Windows Build](https://ci.appveyor.com/api/projects/status/ctm64o74lxdri26s/branch/master?svg=true)](https://ci.appveyor.com/project/uwolfer/gerrit-rest-java-client/branch/master)
-[![Coverage Status](https://img.shields.io/coveralls/uwolfer/gerrit-rest-java-client.svg)](https://coveralls.io/r/uwolfer/gerrit-rest-java-client)
-[![Dependency Status](https://www.versioneye.com/java/com.urswolfer.gerrit.client.rest:gerrit-rest-java-client/badge)](https://www.versioneye.com/java/com.urswolfer.gerrit.client.rest:gerrit-rest-java-client)
-
 Introduction
 -----------
 
@@ -19,8 +14,6 @@ Many different authentication-methods are supported (HTTP basic, HTTP digest, LD
 HTTP password from Gerrit setting, ...).
 
 [Gerrit Code Review Tool]: http://code.google.com/p/gerrit/
-[Gerrit IntelliJ Plugin]: https://github.com/uwolfer/gerrit-intellij-plugin
-
 
 Usage
 -------
@@ -47,7 +40,7 @@ moment because not all extensions to this API are merged into Gerrit repository 
 
 [com.google.gerrit.extensions.api.GerritApi]: https://gerrit.googlesource.com/gerrit/+/HEAD/gerrit-extension-api/src/main/java/com/google/gerrit/extensions/api/GerritApi.java
 [Groovy]: http://www.groovy-lang.org/
-[basic Groovy example]: https://github.com/uwolfer/gerrit-rest-java-client/blob/master/examples/Basic.groovy
+[basic Groovy example]: https://github.com/build-developonbox-ru/gerrit-rest-java-client/blob/master/examples/Basic.groovy
 
 Maven Artifact
 --------------
@@ -67,7 +60,7 @@ Android support builds are not officially released, but you should be able to cr
 [httpclient-android branch]. You probably want to merge master branch into this branch before building it.
 
 [HttpClient for Android]: https://hc.apache.org/httpcomponents-client-4.3.x/android-port.html
-[httpclient-android branch]: https://github.com/uwolfer/gerrit-rest-java-client/tree/httpclient-android
+[httpclient-android branch]: https://github.com/build-developonbox-ru/gerrit-rest-java-client/tree/httpclient-android
 
 Dependencies
 ------------
@@ -79,18 +72,13 @@ This library depends on [Apache HttpClient], [Gson] and [Guava].
 
 Your Support
 ------------
-If you like this library, you can support it:
-* Star it: [Star it at GitHub](https://github.com/uwolfer/gerrit-rest-java-client). GitHub account required.
-* Improve it: Report bugs or feature requests. Or even fix / implement them by yourself - everything is open source!
-* Donate: You can find donation-possibilities at the bottom of this file.
-
+This library was forked from [uwolfer/gerrit-rest-java-client](https://github.com/uwolfer/gerrit-rest-java-client).
+Go there to see information about available support ways.
 
 Donations
 --------
-If you like this work, you can support it with
-[this donation link](https://www.paypal.com/webscr?cmd=_s-xclick&hosted_button_id=8F2GZVBCVEDUQ).
-If you don't like Paypal (Paypal takes 2.9% plus $0.30 per transaction fee from your donation), please contact me.
-Please only use the link from github.com/uwolfer/gerrit-intellij-plugin to verify that it is correct.
+This library was forked from [uwolfer/gerrit-rest-java-client](https://github.com/uwolfer/gerrit-rest-java-client).
+Go there to see information about available donation ways.
 
 
 Copyright and license
