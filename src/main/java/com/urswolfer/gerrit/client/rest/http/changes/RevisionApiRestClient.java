@@ -19,6 +19,7 @@ package com.urswolfer.gerrit.client.rest.http.changes;
 import com.google.gerrit.extensions.api.changes.*;
 import com.google.gerrit.extensions.client.SubmitType;
 import com.google.gerrit.extensions.common.CommentInfo;
+import com.google.gerrit.extensions.common.CommitInfo;
 import com.google.gerrit.extensions.common.FileInfo;
 import com.google.gerrit.extensions.common.TestSubmitRuleInput;
 import com.google.gerrit.extensions.restapi.BinaryResult;
@@ -46,6 +47,7 @@ public class RevisionApiRestClient extends RevisionApi.NotImplemented implements
     private final FileInfoParser fileInfoParser;
     private final DiffInfoParser diffInfoParser;
     private final ReviewResultParser reviewResultParser;
+    private final CommitInfoParser commitInfoParser;
     private final String revision;
 
     public RevisionApiRestClient(GerritRestClient gerritRestClient,
@@ -54,6 +56,7 @@ public class RevisionApiRestClient extends RevisionApi.NotImplemented implements
                                  FileInfoParser fileInfoParser,
                                  DiffInfoParser diffInfoParser,
                                  ReviewResultParser reviewResultParser,
+                                 CommitInfoParser commitInfoParser,
                                  String revision) {
         this.gerritRestClient = gerritRestClient;
         this.changeApiRestClient = changeApiRestClient;
@@ -61,6 +64,7 @@ public class RevisionApiRestClient extends RevisionApi.NotImplemented implements
         this.fileInfoParser = fileInfoParser;
         this.diffInfoParser = diffInfoParser;
         this.reviewResultParser = reviewResultParser;
+        this.commitInfoParser = commitInfoParser;
         this.revision = revision;
     }
 
@@ -184,6 +188,13 @@ public class RevisionApiRestClient extends RevisionApi.NotImplemented implements
     @Override
     public FileApi file(String path) {
         return new FileApiRestClient(gerritRestClient, this, diffInfoParser, path);
+    }
+
+    @Override
+    public CommitInfo commit(boolean addLinks) throws RestApiException {
+        String request = getRequestPath() + "/commit" + (addLinks ? "?links" : "");
+        JsonElement jsonElement = gerritRestClient.getRequest(request);
+        return commitInfoParser.parseSingleCommentInfo(jsonElement.getAsJsonObject());
     }
 
     @Override
