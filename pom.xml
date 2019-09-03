@@ -214,15 +214,16 @@
       </build>
     </profile>
   </profiles>
-
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
     <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>libs-release-local</id>
+      <name>DOB AMS repository</name>
+      <url>http://artifactory.developonbox.ru/artifactory/libs-release-local</url>
     </repository>
+    <snapshotRepository>
+      <id>libs-snapshot-local</id>
+      <name>DOB AMS repository</name>
+      <url>http://artifactory.developonbox.ru/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
   </distributionManagement>
 </project>
